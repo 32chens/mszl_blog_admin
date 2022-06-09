@@ -1,0 +1,38 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: chens_blog
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=UTF-8&serverTimeZone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      #文件上传单个最大值
+      max-file-size: 2MB
+      #文件上传总最大值
+      max-request-size: 20MB
+
+
+  redis:
+    host: localhost
+    port: 6379
+
+#mybatis-plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      table-prefix: ms_
+  type-aliases-package: com.chenlf.blog.dao
+  mapper-locations: mappers/*.xml
+
+#qiniu
+qiniu:
+  accessKey: LGjLwDYFvCr19drh1TolZUT3F2nhX67THbZWOp4C
+  accessSecretKey: UewKt0Ypx7oyLztjdfsN-jwiQ7MAbVVGArwwvkwN
+
